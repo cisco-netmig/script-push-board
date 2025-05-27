@@ -269,7 +269,7 @@ class PushBoardTable(QtWidgets.QTableWidget):
         self.item(row_index, 0).setText(config_data.get("target"))
         self.item(row_index, 1).setText(self._get_config_preview(config_data.get("config")))
         self.item(row_index, 2).setText(str(len(config_data.get("config").splitlines())))
-        self.item(row_index, 3).setText(config_data.get("status"))
+        self.item(row_index, 4).setText(config_data.get("status"))
         if self.data:
             self.data[row_index] = config_data
 
@@ -398,8 +398,8 @@ class Form(QtWidgets.QWidget, Ui_Form):
             logger.error("Target or configuration is empty.")
             return
 
-        save_item = self.pushboard_table.item(index, 3)
-        save = save_item.checkState() == QtCore.Qt.Checked
+        checkbox = self.pushboard_table.cellWidget(index, 3)
+        save = checkbox.isChecked() if checkbox is not None else False
 
         self.status_label.setText(f"Pushing configuration to {target}...")
         worker = PushWorker(target, config, save, self.session)
