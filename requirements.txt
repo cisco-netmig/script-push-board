@@ -1,0 +1,2 @@
+pyqt5
+netcore @ git+https://wwwin-github.cisco.com/Netmig/netcore.git

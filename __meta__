@@ -1,0 +1,10 @@
+{
+    "name": "Push Board",
+    "version": "1.0.0",
+    "author": "Sanjeev Krishna",
+    "uuid": "41e85820-64a6-4392-a405-72f5d77b912b",
+    "tags": [
+        "Migration",
+        "Deploy"
+    ]
+}
