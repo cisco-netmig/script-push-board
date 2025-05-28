@@ -242,7 +242,7 @@ class PushBoardTable(QtWidgets.QTableWidget):
         preview_config = config_text
         if len(config_text) > 120:
             preview_config = config_text[:60] + "  ..  ..  ..  " + config_text[-60:]
-        return preview_config.replace("\n", " ").replace("\r", " ").strip()
+        return preview_config.replace("\n", "\\n").strip()
 
     def add_row(self, target, config, status, save=True):
         """Add a new row to the table with the given target, configuration, and status."""
