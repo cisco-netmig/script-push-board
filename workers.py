@@ -49,7 +49,7 @@ class PushWorker(QtCore.QThread):
             logger.info(f"Connected to {self.target} successfully")
             self.status_signal.emit("Pushing")
 
-            handler.send_config_set(self.config)
+            handler.send_config_set(self.config.splitlines())
             if self.save:
                 handler.save_config()
 
@@ -60,8 +60,8 @@ class PushWorker(QtCore.QThread):
 
             handler.close()
             logger.info(f"Configuration pushed to {self.target} successfully")
-        except:
-            logger.exception(traceback.format_exc())
+        except Exception as e:
+            logger.exception(f"Error pushing config to {self.target}: {e}")
             self.status_signal.emit("Failed")
 
     def abort(self):
