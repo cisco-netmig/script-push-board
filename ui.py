@@ -376,7 +376,7 @@ class Form(QtWidgets.QWidget, Ui_Form):
                     if not os.path.isfile(file_path):
                         raise FileNotFoundError(f"File not found: {file_path}")
 
-                    with open(file_path, 'r', encoding="utf-8") as csv_file:
+                    with open(file_path, 'r', encoding="utf-8-sig") as csv_file:
                         csv_reader = csv.reader(csv_file)
                         for row in csv_reader:
                             if len(row) < 2:
